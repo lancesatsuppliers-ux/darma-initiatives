@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,89 +11,76 @@ export default function FacilitiesServices() {
         <>
             <main className="min-h-screen bg-brand-platinum text-brand-authority pb-24">
 
-                {/* HEADER IMAGE BANNER (Stylized CSS Pattern) */}
-                <div className="relative h-64 w-full bg-[#0B1220] flex items-center justify-center overflow-hidden">
-                    <div className="absolute inset-0">
-                        {/* Technical Grid */}
-                        <div className="absolute inset-0 opacity-10" style={{
-                            backgroundImage: `linear-gradient(#475569 1px, transparent 1px), linear-gradient(90deg, #475569 1px, transparent 1px)`,
-                            backgroundSize: '30px 30px'
-                        }}></div>
-                        {/* Crosshairs Patterns */}
-                        <div className="absolute inset-0 opacity-20" style={{
-                            backgroundImage: `radial-gradient(circle, #CBD5E1 1px, transparent 1px)`,
-                            backgroundSize: '120px 120px'
-                        }}></div>
+                {/* 
+                   HEADER IMAGE BANNER
+                */}
+                <div className="relative h-72 w-full overflow-hidden">
+                    <Image
+                        src="/images/facilities/panel-1.jpg"
+                        alt="Facilities Header"
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <h1 className="text-4xl md:text-5xl font-bold text-white">Facilities & Infrastructure Services</h1>
                     </div>
-                    {/* Shadow Layer for Depth */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-brand-authority/80 via-transparent to-brand-corporate-blue/20"></div>
-                    <div className="absolute bottom-0 right-0 w-2/3 h-full bg-brand-authority/30 clip-path-polygon"></div>
                 </div>
 
                 <div className="max-w-5xl mx-auto px-6 space-y-12 pt-12 relative z-10">
 
                     {/* SECTION 1: PAGE INTRODUCTION */}
-                    <section className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 md:p-12">
-                        <h1 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight text-brand-authority">
-                            Facilities & Infrastructure Services
-                        </h1>
-                        <p className="text-lg text-brand-steel leading-relaxed max-w-3xl">
-                            Darma Initiatives provides facilities management, cleaning and infrastructure support services to ensure safe, compliant and maintained environments for institutional and corporate clients.
-                        </p>
+                    <section className="overflow-hidden rounded-2xl border border-brand-silver shadow-xl">
+                        {/* Image section on top */}
+                        <div className="relative h-48 w-full overflow-hidden">
+                            <Image 
+                                src="/images/facilities/card-cleaning.jpg" 
+                                alt="Facilities Services" 
+                                fill 
+                                className="object-cover" 
+                            />
+                        </div>
+                        
+                        {/* Text content below image */}
+                        <div className="p-8 md:p-12 bg-white">
+                            <p className="text-lg text-brand-authority leading-relaxed max-w-3xl">
+                                Darma Initiatives provides facilities management, cleaning and infrastructure support services to ensure safe, compliant and maintained environments for institutional and corporate clients.
+                            </p>
+                        </div>
                     </section>
 
                     {/* SECTION 2: SERVICES GRID */}
                     <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                        {/* Card 1: Cleaning */}
-                        <div className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                            <h3 className="text-xl font-bold mb-3 text-brand-authority">
-                                Cleaning Services
-                            </h3>
-                            <p className="text-brand-steel leading-relaxed">
-                                Routine and specialized cleaning services delivered to defined operational standards.
-                            </p>
-                        </div>
-
-                        {/* Card 2: Material Supply */}
-                        <div className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                            <h3 className="text-xl font-bold mb-3 text-brand-authority">
-                                Consumables Supply
-                            </h3>
-                            <p className="text-brand-steel leading-relaxed">
-                                Provision of approved cleaning consumables and materials for site operations.
-                            </p>
-                        </div>
-
-                        {/* Card 3: Landscaping */}
-                        <div className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                            <h3 className="text-xl font-bold mb-3 text-brand-authority">
-                                Landscaping & Grounds
-                            </h3>
-                            <p className="text-brand-steel leading-relaxed">
-                                Grounds maintenance, landscaping and outdoor area management.
-                            </p>
-                        </div>
-
-                        {/* Card 4: Building Care */}
-                        <div className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                            <h3 className="text-xl font-bold mb-3 text-brand-authority">
-                                Building Maintenance
-                            </h3>
-                            <p className="text-brand-steel leading-relaxed">
-                                Wall and floor care, post-construction cleaning and general building upkeep.
-                            </p>
-                        </div>
-
-                        {/* Card 5: Infrastructure Support */}
-                        <div className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                            <h3 className="text-xl font-bold mb-3 text-brand-authority">
-                                Infrastructure Support
-                            </h3>
-                            <p className="text-brand-steel leading-relaxed">
-                                Operational support services aligned with facility utilities and site requirements.
-                            </p>
-                        </div>
+                        {[
+                            { title: "Cleaning Services", desc: "Routine and specialized cleaning services delivered to defined operational standards.", img: "card-cleaning.jpg" },
+                            { title: "Consumables Supply", desc: "Provision of approved cleaning consumables and materials for site operations.", img: "card-supplies.jpg" },
+                            { title: "Landscaping & Grounds", desc: "Grounds maintenance, landscaping and outdoor area management.", img: "card-landscaping.jpg" },
+                            { title: "Building Maintenance", desc: "Wall and floor care, post-construction cleaning and general building upkeep.", img: "card-maintenance.jpg" },
+                            { title: "Infrastructure Support", desc: "Operational support services aligned with facility utilities and site requirements.", img: "card-infrastructure.jpg" },
+                        ].map((item, i) => (
+                            <div key={i} className="overflow-hidden rounded-2xl border border-brand-silver shadow-xl hover:shadow-2xl transition-all">
+                                {/* Image section on top */}
+                                <div className="relative h-32 w-full overflow-hidden">
+                                    <Image 
+                                        src={`/images/facilities/${item.img}`} 
+                                        alt={item.title}
+                                        fill 
+                                        className="object-cover" 
+                                    />
+                                </div>
+                                
+                                {/* Text content below image */}
+                                <div className="p-6 bg-white">
+                                    <h3 className="text-lg font-bold mb-2 text-brand-authority">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-brand-authority text-sm leading-relaxed">
+                                        {item.desc}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
 
                     </section>
 

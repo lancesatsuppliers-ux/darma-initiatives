@@ -11,83 +11,78 @@ export default function CCTVService() {
         <>
             <main className="min-h-screen bg-brand-platinum text-brand-authority pb-24">
 
-                {/* HEADER IMAGE BANNER */}
-                <div className="relative h-64 w-full">
+                {/* 
+                   HEADER IMAGE BANNER
+                */}
+                <div className="relative h-72 w-full overflow-hidden">
                     <Image
-                        src="/cctv-header.png"
-                        alt="Surveillance Technology Architecture"
+                        src="/images/cctv/header.png.jpg"
+                        alt="CCTV Header"
                         fill
-                        className="object-cover opacity-90 contrast-110"
+                        className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-brand-authority/20"></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <h1 className="text-4xl md:text-5xl font-bold text-white">CCTV & Electronic Security</h1>
+                    </div>
                 </div>
 
                 {/* CONTENT CONTAINER */}
                 <div className="max-w-5xl mx-auto px-6 space-y-12 pt-12 relative z-10">
 
                     {/* SECTION 1: PAGE INTRODUCTION */}
-                    <section className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 md:p-12">
-                        <h1 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight text-brand-authority">
-                            CCTV & Electronic Security
-                        </h1>
-                        <p className="text-lg text-brand-steel leading-relaxed max-w-3xl">
-                            Darma Initiatives designs, installs and maintains electronic security systems that enhance situational awareness, asset protection and operational control for government, commercial and enterprise environments.
-                        </p>
+                    <section className="overflow-hidden rounded-2xl border border-brand-silver shadow-xl">
+                        {/* Image section on top */}
+                        <div className="relative h-48 w-full overflow-hidden">
+                            <Image 
+                                src="/images/cctv/panel-1.jpg" 
+                                alt="CCTV Services" 
+                                fill 
+                                className="object-cover" 
+                            />
+                        </div>
+                        
+                        {/* Text content below image */}
+                        <div className="p-8 md:p-12 bg-white">
+                            <p className="text-lg text-brand-authority leading-relaxed max-w-3xl">
+                                Darma Initiatives designs, installs and maintains electronic security systems that enhance situational awareness, asset protection and operational control for government, commercial and enterprise environments.
+                            </p>
+                        </div>
                     </section>
 
                     {/* SECTION 2: SERVICES GRID */}
                     <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                        {/* Card 1: System Design */}
-                        <div className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                            <h3 className="text-xl font-bold mb-3 text-brand-authority">
-                                CCTV System Design & Installation
-                            </h3>
-                            <p className="text-brand-steel leading-relaxed">
-                                Surveillance planning, camera placement, cabling, configuration and commissioning.
-                            </p>
-                        </div>
-
-                        {/* Card 2: Monitoring */}
-                        <div className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                            <h3 className="text-xl font-bold mb-3 text-brand-authority">
-                                CCTV Monitoring & Integration
-                            </h3>
-                            <p className="text-brand-steel leading-relaxed">
-                                Integration with control rooms, access control and response protocols.
-                            </p>
-                        </div>
-
-                        {/* Card 3: Access Control */}
-                        <div className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                            <h3 className="text-xl font-bold mb-3 text-brand-authority">
-                                Access Control Systems
-                            </h3>
-                            <p className="text-brand-steel leading-relaxed">
-                                Biometric, card-based and controlled entry solutions.
-                            </p>
-                        </div>
-
-                        {/* Card 4: Alarm Systems */}
-                        <div className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                            <h3 className="text-xl font-bold mb-3 text-brand-authority">
-                                Alarm Systems
-                            </h3>
-                            <p className="text-brand-steel leading-relaxed">
-                                Intrusion detection, alarm monitoring and escalation readiness.
-                            </p>
-                        </div>
-
-                        {/* Card 5: X-Ray */}
-                        <div className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                            <h3 className="text-xl font-bold mb-3 text-brand-authority">
-                                X-Ray & Metal Detection Systems
-                            </h3>
-                            <p className="text-brand-steel leading-relaxed">
-                                Supply, installation and maintenance of screening and detection equipment.
-                            </p>
-                        </div>
+                        {[
+                            { title: "CCTV System Design & Installation", desc: "Surveillance planning, camera placement, cabling, configuration and commissioning.", img: "card-installation.jpg" },
+                            { title: "CCTV Monitoring & Integration", desc: "Integration with control rooms, access control and response protocols.", img: "card-monitoring.jpg" },
+                            { title: "Access Control Systems", desc: "Biometric, card-based and controlled entry solutions.", img: "card-access.jpg" },
+                            { title: "Alarm Systems", desc: "Intrusion detection, alarm monitoring and escalation readiness.", img: "card-alarms.jpg" },
+                            { title: "X-Ray & Metal Detection Systems", desc: "Supply, installation and maintenance of screening and detection equipment.", img: "card-xray.jpg" },
+                            { title: "Motion Detection Systems", desc: "Advanced detection and alerting for perimeter and internal monitoring.", img: "card-detection.jpg" },
+                        ].map((item, i) => (
+                            <div key={i} className="overflow-hidden rounded-2xl border border-brand-silver shadow-xl hover:shadow-2xl transition-all">
+                                {/* Image section on top */}
+                                <div className="relative h-32 w-full overflow-hidden">
+                                    <Image 
+                                        src={`/images/cctv/${item.img}`} 
+                                        alt={item.title}
+                                        fill 
+                                        className="object-cover" 
+                                    />
+                                </div>
+                                
+                                {/* Text content below image */}
+                                <div className="p-6 bg-white">
+                                    <h3 className="text-lg font-bold mb-2 text-brand-authority">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-brand-authority text-sm leading-relaxed">
+                                        {item.desc}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
 
                     </section>
                 </div>

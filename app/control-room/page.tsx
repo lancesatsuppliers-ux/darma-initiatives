@@ -11,72 +11,75 @@ export default function ControlRoom() {
         <>
             <main className="min-h-screen bg-brand-platinum text-brand-authority pb-24">
 
-                {/* HEADER IMAGE BANNER */}
-                <div className="relative h-64 w-full">
+                {/* 
+                   HEADER IMAGE BANNER
+                */}
+                <div className="relative h-72 w-full overflow-hidden">
                     <Image
-                        src="/control-room-header.png"
-                        alt="Integrated Control Room Operations"
+                        src="/images/control-room/panel-1.jpg"
+                        alt="Control Room Header"
                         fill
-                        className="object-cover opacity-90 contrast-110"
+                        className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-brand-authority/30"></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <h1 className="text-4xl md:text-5xl font-bold text-white">Control Room Operations</h1>
+                    </div>
                 </div>
 
                 {/* CONTENT CONTAINER */}
                 <div className="max-w-4xl mx-auto px-6 space-y-8 pt-12 relative z-10">
 
                     {/* SECTION 1: PAGE INTRODUCTION */}
-                    <section className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 md:p-12 mb-12">
-                        <h1 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight text-brand-authority">
-                            Control Room Operations
-                        </h1>
-                        <p className="text-lg text-brand-steel leading-relaxed">
-                            Darma Initiatives operates integrated control room capabilities that enable real-time monitoring, incident management and coordinated response across security and surveillance operations.
-                        </p>
+                    <section className="overflow-hidden rounded-2xl border border-brand-silver shadow-xl mb-12">
+                        {/* Image section on top */}
+                        <div className="relative h-48 w-full overflow-hidden">
+                            <Image 
+                                src="/images/control-room/card-monitoring.jpg" 
+                                alt="Control Room Operations Overview" 
+                                fill 
+                                className="object-cover" 
+                            />
+                        </div>
+                        
+                        {/* Text content below image */}
+                        <div className="p-8 md:p-12 bg-white">
+                            <p className="text-lg text-brand-authority leading-relaxed">
+                                Darma Initiatives operates integrated control room capabilities that enable real-time monitoring, incident management and coordinated response across security and surveillance operations.
+                            </p>
+                        </div>
                     </section>
 
-                    {/* SECTION 2: CAPABILITY PANELS (STACKED VERTICALLY) */}
+                    {/* SECTION 2: CAPABILITY PANELS */}
 
-                    {/* Capability 1 */}
-                    <section className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                        <h2 className="text-xl font-bold mb-3 text-brand-authority">
-                            24/7 Monitoring & Surveillance
-                        </h2>
-                        <p className="text-brand-steel leading-relaxed">
-                            Continuous monitoring of CCTV systems, alarms and security infrastructure.
-                        </p>
-                    </section>
-
-                    {/* Capability 2 */}
-                    <section className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                        <h2 className="text-xl font-bold mb-3 text-brand-authority">
-                            Incident Escalation & Response Coordination
-                        </h2>
-                        <p className="text-brand-steel leading-relaxed">
-                            Structured escalation protocols aligned with response teams and stakeholders.
-                        </p>
-                    </section>
-
-                    {/* Capability 3 */}
-                    <section className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                        <h2 className="text-xl font-bold mb-3 text-brand-authority">
-                            Integration with Guarding & Armed Response
-                        </h2>
-                        <p className="text-brand-steel leading-relaxed">
-                            Seamless coordination between monitoring, field personnel and tactical response.
-                        </p>
-                    </section>
-
-                    {/* Capability 4 */}
-                    <section className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                        <h2 className="text-xl font-bold mb-3 text-brand-authority">
-                            Reporting & Operational Oversight
-                        </h2>
-                        <p className="text-brand-steel leading-relaxed">
-                            Incident logging, reporting and operational visibility for clients.
-                        </p>
-                    </section>
+                    {[
+                        { title: "24/7 Monitoring & Surveillance", desc: "Continuous monitoring of CCTV systems, alarms and security infrastructure.", img: "card-monitoring.jpg" },
+                        { title: "Incident Escalation & Response Coordination", desc: "Structured escalation protocols aligned with response teams and stakeholders.", img: "card-escalation.jpg" },
+                        { title: "Integration with Guarding & Armed Response", desc: "Seamless coordination between monitoring, field personnel and tactical response.", img: "card-integration.jpg" },
+                        { title: "Reporting & Operational Oversight", desc: "Incident logging, reporting and operational visibility for clients.", img: "card-reporting.jpg" },
+                    ].map((item, i) => (
+                        <section key={i} className="overflow-hidden rounded-2xl border border-brand-silver shadow-xl hover:shadow-2xl transition-all">
+                            {/* Image section on top */}
+                            <div className="relative h-40 w-full overflow-hidden">
+                                <Image 
+                                    src={`/images/control-room/${item.img}`} 
+                                    alt={item.title}
+                                    fill 
+                                    className="object-cover" 
+                                />
+                            </div>
+                            
+                            {/* Text content below image */}
+                            <div className="p-8 bg-white">
+                                <h2 className="text-2xl font-bold mb-2 text-brand-authority">
+                                    {item.title}
+                                </h2>
+                                <p className="text-brand-authority leading-relaxed">
+                                    {item.desc}
+                                </p>
+                            </div>
+                        </section>
+                    ))}
 
                 </div>
             </main>

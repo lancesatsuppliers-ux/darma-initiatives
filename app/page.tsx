@@ -60,15 +60,26 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { title: "Security & Protection", icon: "01", desc: "Professional guarding, tactical response and high-risk protection operations." },
-                { title: "Surveillance Technology", icon: "02", desc: "Design, installation and maintenance of integrated CCTV and electronic security." },
-                { title: "Control Room Ops", icon: "03", desc: "24/7 centralized monitoring, incident management and emergency coordination." },
-                { title: "Facilities & Infrastructure", icon: "04", desc: "Maintenance, cleaning and infrastructure support for institutional facilities." },
+                { title: "Security & Protection", icon: "01", desc: "Professional guarding, tactical response and high-risk protection operations.", img: "/images/security/panel-1.jpg" },
+                { title: "Surveillance Technology", icon: "02", desc: "Design, installation and maintenance of integrated CCTV and electronic security.", img: "/images/cctv/panel-1.jpg" },
+                { title: "Control Room Ops", icon: "03", desc: "24/7 centralized monitoring, incident management and emergency coordination.", img: "/images/control-room/panel-1.jpg" },
+                { title: "Facilities & Infrastructure", icon: "04", desc: "Maintenance, cleaning and infrastructure support for institutional facilities.", img: "/images/facilities/panel-1.jpg" },
               ].map((item, i) => (
-                <div key={i} className="bg-brand-platinum/50 border border-brand-silver p-8 rounded-2xl hover:shadow-xl transition-all group">
-                  <span className="text-2xl font-bold text-brand-corporate-blue/30 group-hover:text-brand-corporate-blue transition-colors mb-4 block">{item.icon}</span>
-                  <h3 className="text-xl font-bold text-brand-authority mb-3">{item.title}</h3>
-                  <p className="text-brand-steel leading-relaxed">{item.desc}</p>
+                <div key={i} className="bg-brand-platinum/50 border border-brand-silver rounded-2xl hover:shadow-xl transition-all group overflow-hidden flex flex-col">
+                  <div className="relative w-full h-40 bg-brand-platinum">
+                    <Image 
+                      src={item.img} 
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  </div>
+                  <div className="p-8 flex flex-col flex-grow">
+                    <span className="text-2xl font-bold text-brand-corporate-blue/30 group-hover:text-brand-corporate-blue transition-colors mb-4 block">{item.icon}</span>
+                    <h3 className="text-xl font-bold text-brand-authority mb-3">{item.title}</h3>
+                    <p className="text-brand-steel leading-relaxed">{item.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -120,16 +131,27 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                { title: "Physical Security", link: "/security", text: "Guarding and tactical protection services for high-risk corporate and property sectors." },
-                { title: "Electronic Systems", link: "/cctv", text: "State-of-the-art surveillance and access control integration for secure perimeters." },
-                { title: "Facilities Care", link: "/facilities", text: "Integrated Soft and Hard FM services ensuring compliant and clean environments." },
+                { title: "Physical Security", link: "/security", text: "Guarding and tactical protection services for high-risk corporate and property sectors.", img: "/images/security/card-guarding.jpg" },
+                { title: "Electronic Systems", link: "/cctv", text: "State-of-the-art surveillance and access control integration for secure perimeters.", img: "/images/cctv/card-design.jpg" },
+                { title: "Facilities Care", link: "/facilities", text: "Integrated Soft and Hard FM services ensuring compliant and clean environments.", img: "/images/facilities/card-maintenance.jpg" },
               ].map((teaser, i) => (
-                <div key={i} className="bg-white/60 backdrop-blur-md p-10 rounded-2xl border border-brand-silver shadow-lg flex flex-col items-start">
-                  <h3 className="text-2xl font-bold text-brand-authority mb-4">{teaser.title}</h3>
-                  <p className="text-brand-steel leading-relaxed mb-6 flex-grow">{teaser.text}</p>
-                  <Link href={teaser.link} className="text-brand-corporate-blue font-bold hover:gap-2 flex items-center transition-all group">
-                    Service Details <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                  </Link>
+                <div key={i} className="bg-white/60 backdrop-blur-md rounded-2xl border border-brand-silver shadow-lg flex flex-col overflow-hidden">
+                  <div className="relative w-full h-40 bg-white">
+                    <Image 
+                      src={teaser.img} 
+                      alt={teaser.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <div className="p-10 flex flex-col items-start flex-grow">
+                    <h3 className="text-2xl font-bold text-brand-authority mb-4">{teaser.title}</h3>
+                    <p className="text-brand-steel leading-relaxed mb-6 flex-grow">{teaser.text}</p>
+                    <Link href={teaser.link} className="text-brand-corporate-blue font-bold hover:gap-2 flex items-center transition-all group">
+                      Service Details <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>

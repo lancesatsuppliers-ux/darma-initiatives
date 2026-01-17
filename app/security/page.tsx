@@ -9,97 +9,80 @@ export const metadata: Metadata = {
 export default function SecurityServices() {
     return (
         <>
-            {/* Main container with relative positioning for image background if needed, but here we use a block header */}
             <main className="min-h-screen bg-brand-platinum text-brand-authority pb-24">
 
-                {/* HEADER IMAGE BANNER */}
-                <div className="relative h-64 w-full">
+                {/* 
+                   HEADER IMAGE BANNER
+                */}
+                <div className="relative h-72 w-full overflow-hidden">
                     <Image
-                        src="/security-header.png"
-                        alt="Corporate Security Architecture"
+                        src="/images/security/header.jpg"
+                        alt="Security Header"
                         fill
-                        className="object-cover opacity-90 contrast-110"
+                        className="object-cover"
                         priority
                     />
-                    {/* Neutral overlay to dampen visuals and maintain enterprise calm */}
-                    <div className="absolute inset-0 bg-brand-authority/20"></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <h1 className="text-4xl md:text-5xl font-bold text-white">Security & Protection Services</h1>
+                    </div>
                 </div>
 
-                {/* CONTENT CONTAINER - Starts after banner with some spacing */}
+                {/* CONTENT CONTAINER */}
                 <div className="max-w-5xl mx-auto px-6 space-y-12 pt-12 relative z-10">
 
                     {/* SECTION 1: PAGE INTRODUCTION */}
-                    <section className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 md:p-12">
-                        <h1 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight text-brand-authority">
-                            Security & Protection Services
-                        </h1>
-                        <p className="text-lg text-brand-steel leading-relaxed max-w-3xl">
-                            Darma Initiatives provides professional, compliant and operationally ready security and protection services to government, commercial and enterprise clients across South Africa.
-                        </p>
+                    <section className="overflow-hidden rounded-2xl border border-brand-silver shadow-xl">
+                        {/* Image section on top */}
+                        <div className="relative h-48 w-full overflow-hidden">
+                            <Image 
+                                src="/images/security/card-guarding.jpg" 
+                                alt="Security Services" 
+                                fill 
+                                className="object-cover" 
+                            />
+                        </div>
+                        
+                        {/* Text content below image */}
+                        <div className="p-8 md:p-12 bg-white">
+                            <p className="text-lg text-brand-authority leading-relaxed max-w-3xl">
+                                Darma Initiatives provides professional, compliant and operationally ready security and protection services to government, commercial and enterprise clients across South Africa.
+                            </p>
+                        </div>
                     </section>
 
                     {/* SECTION 2: SERVICES GRID */}
                     <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                        {/* Card 1: Normal Guarding */}
-                        <div className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                            <h3 className="text-xl font-bold mb-3 text-brand-authority">
-                                Normal Guarding Services
-                            </h3>
-                            <p className="text-brand-steel leading-relaxed">
-                                Professionally trained security officers providing static and mobile guarding services.
-                            </p>
-                        </div>
-
-                        {/* Card 2: Armed Security */}
-                        <div className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                            <h3 className="text-xl font-bold mb-3 text-brand-authority">
-                                Armed Security Services
-                            </h3>
-                            <p className="text-brand-steel leading-relaxed">
-                                Armed protection services deployed in high-risk and sensitive environments.
-                            </p>
-                        </div>
-
-                        {/* Card 3: Tactical / Armed Response */}
-                        <div className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                            <h3 className="text-xl font-bold mb-3 text-brand-authority">
-                                Tactical / Armed Response
-                            </h3>
-                            <p className="text-brand-steel leading-relaxed">
-                                Rapid response capability integrated with monitoring and escalation protocols.
-                            </p>
-                        </div>
-
-                        {/* Card 4: VIP Protection */}
-                        <div className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                            <h3 className="text-xl font-bold mb-3 text-brand-authority">
-                                VIP Protection Services
-                            </h3>
-                            <p className="text-brand-steel leading-relaxed">
-                                Close protection for executives, officials and high-profile individuals.
-                            </p>
-                        </div>
-
-                        {/* Card 5: Event & Crowd Control */}
-                        <div className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                            <h3 className="text-xl font-bold mb-3 text-brand-authority">
-                                Event & Crowd Control Security
-                            </h3>
-                            <p className="text-brand-steel leading-relaxed">
-                                Structured crowd management and event security operations.
-                            </p>
-                        </div>
-
-                        {/* Card 6: Security Training */}
-                        <div className="bg-white/45 backdrop-blur-xl rounded-2xl border border-brand-silver shadow-xl p-8 hover:bg-white/60 transition-colors">
-                            <h3 className="text-xl font-bold mb-3 text-brand-authority">
-                                Security Training Services
-                            </h3>
-                            <p className="text-brand-steel leading-relaxed">
-                                Accredited training and instruction aligned to regulatory requirements.
-                            </p>
-                        </div>
+                        {[
+                            { title: "Normal Guarding Services", desc: "Professionally trained security officers providing static and mobile guarding services.", img: "card-guarding.jpg" },
+                            { title: "Armed Security Services", desc: "Armed protection services deployed in high-risk and sensitive environments.", img: "card-armed.jpg" },
+                            { title: "Tactical / Armed Response", desc: "Rapid response capability integrated with monitoring and escalation protocols.", img: "card-tactical.jpg" },
+                            { title: "VIP Protection Services", desc: "Close protection for executives, officials and high-profile individuals.", img: "card-vip.jpg" },
+                            { title: "Event & Crowd Control Security", desc: "Structured crowd management and event security operations.", img: "card-event.jpg" },
+                            { title: "Security Training Services", desc: "Accredited training and instruction aligned to regulatory requirements.", img: "card-training.jpg" },
+                        ].map((item, i) => (
+                            <div key={i} className="overflow-hidden rounded-2xl border border-brand-silver shadow-xl hover:shadow-2xl transition-all">
+                                {/* Image section on top */}
+                                <div className="relative h-32 w-full overflow-hidden">
+                                    <Image 
+                                        src={`/images/security/${item.img}`} 
+                                        alt={item.title}
+                                        fill 
+                                        className="object-cover" 
+                                    />
+                                </div>
+                                
+                                {/* Text content below image */}
+                                <div className="p-6 bg-white">
+                                    <h3 className="text-lg font-bold mb-2 text-brand-authority">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-brand-authority text-sm leading-relaxed">
+                                        {item.desc}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
 
                     </section>
                 </div>
